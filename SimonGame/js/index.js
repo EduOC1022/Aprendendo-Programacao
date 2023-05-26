@@ -16,7 +16,7 @@ let turno;
 let good;
 
 // Booleano que diz se é a vez da máquina ou do jogador acender as luzes
-let compTurn;
+let turnoMaquina;
 
 // Intervalo de tempo entre o acpagr de uma luz e o acender da próxima
 let idIntervalo;
@@ -56,7 +56,7 @@ const botaoStart = document.querySelector("#start");
 2 - "".addEventListener()" serve para adicionar um evento que vai fazer com 
     que o script "escute" o que acontece com os botões;
 3 - "click" é o nome dado ao evento que o script vai "escutar";
-4 - "(event) => {}" é como se referencia o evento;
+4 - "(event) => {}" diz o que acontecerá durante o evento.
 */
 
 
@@ -79,7 +79,7 @@ Esse evento diz: se o valor do botão Power for true (se ele estiver selecionado
  o valor da variável também será, contador de turno ficará em branco, vai rodar a 
  função "clearColor()" e a "clearInterval(idIntervalo)". A primeira apagará todas
  as luzes que estiverem acesas e a segunda vai zerar o intevalo de tempo entre uma
- e outra
+ e outra (nesse momento o intervalo ainda não foi definido)
 */
 botaoOn.addEventListener("click", (event) => {
     if (botaoOn.checked == true) {
@@ -93,8 +93,50 @@ botaoOn.addEventListener("click", (event) => {
     }
 });
 
+
+/*
+"on || win" é uma forma "encolhida" de falar: if on = true or win = true, then...
+A função play() não foi definida nesse momento.
+"(event) => {}" é chamada função arrow. É uma das formas possíveis de se definir 
+uma função.
+*/
 botaoStart.addEventListener("click", (event) => {
     if (on || win) {
-
+        play();
     }
 });
+
+function play() {
+    /* Faz com que o valor de win seja false e portanto, faz com que o evento
+    acima pare de aconteccer. */
+    win = false;
+    /* Faz com que a variável volte a ser uma array vazia, pois nesse momento 
+    o jogo está recomeçando e não há uma sequência definida */
+    order = [];
+    /* Faz com que a variável volte a ser uma array vazia, pois nesse momento 
+    o jogador está recomeçando e não selecionou nenhum botão ainda */
+    playerOrder = [];
+    /* Faz com que as luzes parem de piscar */
+    piscar = 0;
+    /* Zera o intervalo entre uma luz e outra */
+    idIntervalo = 0;
+    /* Muda o número do turno para 1 */
+    turno = 1;
+    /* Faz o mostrador de turnos trocar a string pelo número 1 */
+    contadorTurno.innerHTML = 1;
+    /* Diz que o jogador não errou ainda */
+    good = true;
+    /* Faz com que a máquina escolha os números 1, 2, 3 ou 4 até 20 vezes 
+    e que a variável order receba esse número*/
+    for (var i = 0; i < 20; i++) {
+        order.push(Math.floor(Math.random() * 4) +1);
+    }
+    /* Diz que o é a vez da máquina escolher a sequência de cores que o 
+    jogador deve repetir */
+    turnoMaquina = true;
+    /* Define um intervalo de tempo em que a função turno jogo irá rodar.
+    basicamente, ela que inicia o jogo. Ela irá parar quando a função 
+    idIntervalo tiver o valor falso */
+    idIntervalo = setInterval(turnoJogo, 800)
+}
+
