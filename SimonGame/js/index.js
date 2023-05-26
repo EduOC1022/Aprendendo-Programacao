@@ -140,3 +140,40 @@ function play() {
     idIntervalo = setInterval(turnoJogo, 800)
 }
 
+function turnoJogo() {
+    // Para que o jogador não consiga clicar enquanto aparece a ordem
+    on = false;
+    /* Se o número de luzes que acenderam for igual o número do turno em que 
+    o jogo está ... */
+    if (flash==turn) {
+        /* fará com que pare de repetir o código anterior */
+        clearInterval(idIntervalo);
+        /* Faz com que a máquina pare de escolher a sequência de cores */
+        turnoMaquina = false;
+        /* Apaga as luzes que estão acesas. Neste momento ainda não foi 
+        definida */
+        clearColor();
+        /* Diz que é a vez do jogador. Faz com que a máquina pare de 
+        escolher as cores e permite o jogador clicar nas cores */
+        on = true;
+    }
+    
+    // Se turnoMaquina = true, ...
+    if (turnoMaquina) {
+        /* Apaga as luzes que estão acesas. Neste momento ainda não foi 
+        definida */
+        clearColor();
+        /* Um intervalo de tempo que define que a cada 200 irá rodar o evento abaixo novamente. 
+        Se o "primeiro número a array" (Array = order / flash é um número entre 1 e 4) for igual 
+        a um dos números irá rodar a função específica. Nesse ponto as funções ainda não foram
+        definidas*/
+        setTimeout(() => {
+            if(order[flash] == 1) um();
+            if(order[flash] == 2) dois();
+            if(order[flash] == 3) tres();
+            if(order[flash] == 4) quatro();
+            flash++;
+        }, 200)
+    }
+}
+
