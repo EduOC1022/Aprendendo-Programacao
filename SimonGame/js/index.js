@@ -145,7 +145,7 @@ function turnoJogo() {
     on = false;
     /* Se o número de luzes que acenderam for igual o número do turno em que 
     o jogo está ... */
-    if (flash==turn) {
+    if (piscar==turno) {
         /* fará com que pare de repetir o código anterior */
         clearInterval(idIntervalo);
         /* Faz com que a máquina pare de escolher a sequência de cores */
@@ -160,20 +160,159 @@ function turnoJogo() {
     
     // Se turnoMaquina = true, ...
     if (turnoMaquina) {
-        /* Apaga as luzes que estão acesas. Neste momento ainda não foi 
+        /* "Apaga" as luzes que estão acesas. Neste momento ainda não foi 
         definida */
         clearColor();
         /* Um intervalo de tempo que define que a cada 200 irá rodar o evento abaixo novamente. 
-        Se o "primeiro número a array" (Array = order / flash é um número entre 1 e 4) for igual 
+        Se o "primeiro número a array" (Array = order / piscar é um número entre 1 e 4) for igual 
         a um dos números irá rodar a função específica. Nesse ponto as funções ainda não foram
         definidas*/
         setTimeout(() => {
-            if(order[flash] == 1) um();
-            if(order[flash] == 2) dois();
-            if(order[flash] == 3) tres();
-            if(order[flash] == 4) quatro();
-            flash++;
+            if(order[piscar] == 1) um();
+            if(order[piscar] == 2) dois();
+            if(order[piscar] == 3) tres();
+            if(order[piscar] == 4) quatro();
+            piscar++;
         }, 200)
     }
 }
+
+/* Os 4 codigos abaixo são as definições das funções utilizadas na função anterior.
+Cada uma "acende uma das luzes" do jogo*/
+
+
+
+function um() {
+    /* Chama a váriavel som e diz que se ela ocorrer uma outra variável "audio"
+    será criada e vai rodar com o comando (audio.play)*/
+    if (som) {
+        let audio = document.getElementById("som1");
+        audio.play();
+    }
+    som = true;
+    // Faz com que troque a cor do respectivo botão. Dando a aparência de que piscou.
+    superiorEsquerdo.style.backgroundColor = "lightgreen";
+}
+function dois() {
+    /* Chama a váriavel som e diz que se ela ocorrer uma outra variável "audio"
+    será criada e vai rodar com o comando (audio.play)*/
+    if (som) {
+        let audio = document.getElementById("som2");
+        audio.play();
+    }
+    som = true;
+    // Faz com que troque a cor do respectivo botão. Dando a aparência de que piscou.
+    superiorDireito.style.backgroundColor = "tomato";
+}
+function tres() {
+    /* Chama a váriavel som e diz que se ela ocorrer uma outra variável "audio"
+    será criada e vai rodar com o comando (audio.play)*/
+    if (som) {
+        let audio = document.getElementById("som3");
+        audio.play();
+    }
+    som = true;
+    // Faz com que troque a cor do respectivo botão. Dando a aparência de que piscou.
+    inferiorEsquerdo.style.backgroundColor = "yellow";
+}
+
+function quatro() {
+    /* Chama a váriavel som e diz que se ela ocorrer uma outra variável "audio"
+    será criada e vai rodar com o comando (audio.play)*/
+    if (som) {
+        let audio = document.getElementById("som4");
+        audio.play();
+    }
+    som = true;
+    // Faz com que troque a cor do respectivo botão. Dando a aparência de que piscou.
+    inferiorDireito.style.backgroundColor = "lightskyblue";
+}
+
+/*Essa função faz com que as cores de fundo dos botões retornem às cores originais
+do html*/
+function clearColor() {
+    superiorEsquerdo.style.backgroundColor = "darkgreen";
+    superiorDireito.style.backgroundColor = "darkred";
+    inferiorEsquerdo.style.backgroundColor = "goldenrod";
+    inferiorDireito.style.backgroundColor = "darkblue";
+}
+
+/*Os comandos a seguir servem para representar a vez do jogador. São adicionados os
+eventos de click e caso o jogador não tenha vencido, as luzes se apagam logo após
+o click*/
+superiorEsquerdo.addEventListener("click", (event) => {
+    /* Se o jogador clicar, ou seja, se for o turno do jogador e o botão for clicado
+    o primeiro elemento do array playerOrder vai ser um (playerOrder.push(1)).*/
+    if (on) {
+        playerOrder.push(1);
+        /*Variável que confirmará se o jogador clicou na sequência certa ou não.
+        Neste momento ainda não foi definida*/
+        check();
+        /*Acionará a função um() definida anteriormente*/
+        um();
+        /*Se win = false, define uma "contagem requeciva" para "apagar" a luz*/
+        if(!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})
+
+superiorDireito.addEventListener("click", (event) => {
+    /* Se o jogador clicar, ou seja, se for o turno do jogador e o botão for clicado
+    o primeiro elemento do array playerOrder vai ser um (playerOrder.push(1)).*/
+    if (on) {
+        playerOrder.push(2);
+        /*Variável que confirmará se o jogador clicou na sequência certa ou não.
+        Neste momento ainda não foi definida*/
+        check();
+        /*Acionará a função um() definida anteriormente*/
+        dois();
+        /*Se win = false, define uma "contagem requeciva" para "apagar" a luz*/
+        if(!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})
+
+inferiorEsquerdo.addEventListener("click", (event) => {
+    /* Se o jogador clicar, ou seja, se for o turno do jogador e o botão for clicado
+    o primeiro elemento do array playerOrder vai ser um (playerOrder.push(1)).*/
+    if (on) {
+        playerOrder.push(3);
+        /*Variável que confirmará se o jogador clicou na sequência certa ou não.
+        Neste momento ainda não foi definida*/
+        check();
+        /*Acionará a função um() definida anteriormente*/
+        tres();
+        /*Se win = false, define uma "contagem requeciva" para "apagar" a luz*/
+        if(!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})
+
+inferiorDireito.addEventListener("click", (event) => {
+    /* Se o jogador clicar, ou seja, se for o turno do jogador e o botão for clicado
+    o primeiro elemento do array playerOrder vai ser um (playerOrder.push(1)).*/
+    if (on) {
+        playerOrder.push(4);
+        /*Variável que confirmará se o jogador clicou na sequência certa ou não.
+        Neste momento ainda não foi definida*/
+        check();
+        /*Acionará a função um() definida anteriormente*/
+        quatro();
+        /*Se win = false, define uma "contagem requeciva" para "apagar" a luz*/
+        if(!win) {
+            setTimeout(() => {
+                clearColor();
+            }, 300);
+        }
+    }
+})
 
