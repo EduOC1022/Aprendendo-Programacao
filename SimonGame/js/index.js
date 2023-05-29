@@ -140,11 +140,13 @@ function play() {
     idIntervalo = setInterval(turnoJogo, 800)
 }
 
+
+// Define quando termina a vez da máquina "escolher" a sequência de cores.
 function turnoJogo() {
     // Para que o jogador não consiga clicar enquanto aparece a ordem
     on = false;
     /* Se o número de luzes que acenderam for igual o número do turno em que 
-    o jogo está ... */
+    o jogo está (o turno da máquina acabou)... */
     if (piscar==turno) {
         /* fará com que pare de repetir o código anterior */
         clearInterval(idIntervalo);
@@ -237,6 +239,14 @@ function clearColor() {
     inferiorDireito.style.backgroundColor = "darkblue";
 }
 
+/* Faz com que todas as luzer "pisquem ao mesmo tempo"*/
+function piscarLuz() {
+    superiorEsquerdo.style.backgroundColor = "lightgreen";
+    superiorDireito.style.backgroundColor = "tomato";
+    inferiorEsquerdo.style.backgroundColor = "yellow";
+    inferiorDireito.style.backgroundColor = "lightskyblue"; 
+}
+
 /*Os comandos a seguir servem para representar a vez do jogador. São adicionados os
 eventos de click e caso o jogador não tenha vencido, as luzes se apagam logo após
 o click*/
@@ -316,3 +326,74 @@ inferiorDireito.addEventListener("click", (event) => {
     }
 })
 
+/*É a função que vai conferir se o jogador acertou ou errou e decidir o que 
+acontecerá em seguida*/
+function check() {
+    /*Se o conteúdo da array do jogador for diferente do da máquina, good = 
+    false, ou seja, o jogador errou*/
+    if (playerOrder[playerOrder.length -1] !== order[playerOrder.length -1])
+    good = false;
+    /*Se o conteúdo da array do jogador for igual a 20 e good = true 
+    (acertou todos os turnos até 20), a função winGame irá rodar 
+    (Ainda não foi definida)*/
+    if (playerOrder.length == 20 && good) {
+        winGame();
+    }
+    /*vai definir o que acontece se o jogador errar*/
+    if (good == false) {
+        // Ainda não definida
+        piscarLuz();
+        // Trocará a mensagem do contador de turno para ERROU!
+
+        contadorTurno.innerHTML = "NO!";
+        /* Define um equeno intervalo de tempo que confere se o botão strict
+        estiver ativado, o jogo começará do zero com a função play()*/
+        setTimeout(() => {
+            if (strict) {
+                play();
+                /*Caso o botão strict esteja desativado...*/
+            } else {
+                // A máquina definirá outra sequência
+                turnoMaquina = true;
+                // As luzer vão resetar
+                piscar = 0;
+                // o jogador poderá escolher novamente com a array limpa
+                playerOrder = [];
+                // Como se o jogador não tivesse errado
+                good = true;
+                /*Define um intervalo até que a máquina entregue outra 
+                sequência de cores (para que rode a função turnoJogo)*/
+                idIntervalo = setInterval(turnoJogo, 800);
+            }
+        }, 800);
+        // Fará com que não toque nenhum som se o jogador clicar
+        som = false;
+    }
+    /*Caso de o jogador acertar e continuar o jogo (ainda não ganhou)*/
+    if (turno == playerOrder.length && good && !win) {
+        // O número do turno não aumentará
+        turno++;
+        // vai limpar as escolhas do turno passado, limpando a array do jogador
+        playerOrder = [];
+        // A máquina definirá outra sequência
+        turnoMaquina = true;
+        // As luzer vão resetar
+        piscar = 0;
+        // O contador de turnos aumentará em um
+        contadorTurno.innerHTML = turno;
+        // Define quando a máquina terminou de escolhes as cores
+        idIntervalo = setInterval(turnoJogo, 800);
+    }
+}
+
+// Função que aparece quando ganha o jogo
+function winGame() {
+    // Todas as luzes acendem ao mesmo tempo
+    piscarLuz();
+    // O contador mostrará a mensagem WIN!
+    contadorTurno.innerHTML = "WIN!";
+    // O jogador não pode mais clicar nas cores
+    on = false;
+    // Faz com que o jogo comece novamente.
+    win = true;
+}
