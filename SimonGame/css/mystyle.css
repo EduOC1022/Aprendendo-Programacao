@@ -7,9 +7,9 @@
 body {
     height: 100vh;
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
-    align-items: center;
+    /* align-items: center; */
 }
 
 header {
@@ -21,6 +21,9 @@ header {
     font-size: 5vh;
     letter-spacing: 5px;
     padding: 5px;
+    border-bottom: 1px solid black;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
 }
 
 main {
@@ -28,12 +31,61 @@ main {
     text-align: center;
 }
 
+.menu {
+    background-color: rgb(255, 0, 0);
+    display: grid;
+    grid-template-areas: "checkbox checkbox checkbox" "contador contador contador";
+    justify-content: space-between;
+    position: absolute;
+    left: 50%;
+    margin: 60px 0px 0px -114px;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#start {
+    background-color:whitesmoke;
+    width: 10vh;
+    height: 30px;
+    border: 2px 2px solid black;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px;
+    font-size: 2.5vh;
+    margin: 0 20px 10px 20px;
+}
+
+#start:active {
+    border: 2px solid black;
+    box-shadow: -1px -1px 5px;
+}
+
+#turno {
+    background: #330000;
+    color: red;
+    font-family: courier;
+    font-size: 20px;
+    height: 30px;
+    width: 50px;
+    text-align: center;
+    line-height: 32px;
+    margin-left: 12vh;
+    border-radius: 10px;
+}
+
+.contador {
+    grid-area: contador;
+}
+
 #superior-esquerdo {
     position: absolute;
     height: 300px;
     width: 250px;
     background: darkgreen;
-    top: 39.4vh;
+    top: 52.2vh;
     left: 50%;
     margin: -250px 0px 0px -250px;
 }
@@ -43,7 +95,7 @@ main {
     height: 300px;
     width: 250px;
     background: darkred;
-    top: 39.4vh;
+    top: 52.2vh;
     left: 50%;
     margin: -250px 0px 0px 0px;
 }
@@ -67,14 +119,3 @@ main {
     left: 50%;
     margin: 0px 0px -250px 0px;
   }
-
-/* footer {
-    background-color: aqua;
-    width: 100%;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    padding-bottom: 5px;
-    padding-top: 2px;
-    font-size: 1.8vh;
-} */
