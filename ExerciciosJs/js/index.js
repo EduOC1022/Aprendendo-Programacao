@@ -20,6 +20,7 @@ console.log(resultado1);
 
 function parouimpar() {
     let bNum = 20;
+    document.getElementById("bnum").innerHTML = bNum;
     if (bNum % 2 == 0) {
         return true;
     } else {
