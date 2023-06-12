@@ -1,110 +1,110 @@
 // Exercício 1
-// let aNum1 = 0
-// let aNum2 = 0
-
 // function soma() {
-//     let aNum1 = 14
-//     let aNum2 = 12
-//     document.getElementById("anum1").innerHTML = aNum1;
-//     document.getElementById("anum2").innerHTML = aNum2;
-//     return aNum1 + aNum2;
+//     let aNum1 = parseInt(document.getElementById("anum1").value);
+//     let aNum2 = parseInt(document.getElementById("anum2").value);
+//     document.getElementById("saida1").innerHTML = aNum1 + aNum2;
+//     console.log(aNum1 + aNum2);  
 // };
 
-// let resultado1 = soma();
-
-// document.getElementById("saida1").innerHTML = resultado1;
-// console.log(resultado1);
-
-// Exercício 1
-function soma() {
-    let aNum1 = document.getElementById("anum1").value;
-    let aNum2 = document.getElementById("anum2").value;
-    document.getElementById("saida1").innerHTML = aNum1 + aNum2;
-    console.log(aNum1 + aNum2);
-};
+// const botao1 = document.getElementById("ok1");
+// botao1.addEventListener("click", () => {
+//     let aNum1 = parseInt(document.getElementById("anum1").value);
+//     let aNum2 = parseInt(document.getElementById("anum2").value);
+//     document.getElementById("saida1").innerHTML = aNum1 + aNum2;
+//     console.log(aNum1 + aNum2);
+// });
 
 
 // Exercício 2
-
 // function parouimpar() {
-//     let bNum = 20;
+//     let bNum = parseInt(document.getElementById("bnum").value);
 //     if (bNum % 2 == 0) {
-//         return true;
+//         document.getElementById("saida2").innerHTML = "Verdadero";
+//         console.log("Verdadero");
 //     } else {
-//         return false;
+//         document.getElementById("saida2").innerHTML = "Falso";
+//         console.log("Falso")
 //     }
 // }
 
-// let resultado2 = parouimpar();
-
-// document.getElementById("saida2").innerHTML = resultado2;
-// console.log(resultado2)
+// const botao2 = document.getElementById("ok2");
+// botao2.addEventListener("click", () => {
+//     let bNum = parseInt(document.getElementById("bnum").value);
+//     if (bNum % 2 == 0) {
+//         document.getElementById("saida2").innerHTML = "Verdadero";
+//         console.log("Verdadero");
+//     } else {
+//         document.getElementById("saida2").innerHTML = "Falso";
+//         console.log("Falso")
+//     }
+// });
 
 
 // Exercício 3
-// let cStringEntrada = "";
-
-// function contagem3() {
-//     let cStringEntrada = "Eduardo Coelho";
-//     document.getElementById("cstring").innerHTML = cStringEntrada;
-//     return cStringEntrada.length;
+// function contagem() {
+//     let cString = document.getElementById("cstring").value;
+//     document.getElementById("saida3").innerHTML = cString.length;
+//     console.log(cString.length);
 // }
 
-// let resultado3 = contagem3();
+// const botao3 = document.getElementById("ok3");
 
-// document.getElementById("saida3").innerHTML = resultado3;
-// console.log(resultado3);
+// botao3.addEventListener("click", () => {
+//     let cString = document.getElementById("cstring").value;
+//     document.getElementById("saida3").innerHTML = cString.length;
+//     console.log(cString.length);
+// });
 
 
 // Exercício 4
-// let dStringEntrada = "";
-
 // function inversao() {
-//     let dStringEntrada = "Eduardo Coelho";
-//     document.getElementById("dstring").innerHTML = dStringEntrada;
-//     return dStringEntrada.split("").reverse().join("");
+//     let dStringEntrada = document.getElementById("dstring").value;
+//     document.getElementById("saida4").innerHTML = dStringEntrada.split("").reverse().join("");
+//     console.log(dStringEntrada.split("").reverse().join(""));
 // }
 
-// let resultado4 = inversao();
-
-// document.getElementById("saida4").innerHTML = resultado4;
-// console.log(resultado4);
+// const botao4 = document.getElementById("ok3");
+// function inversao() {
+//     let dStringEntrada = document.getElementById("dstring").value;
+//     document.getElementById("saida4").innerHTML = dStringEntrada.split("").reverse().join("");
+//     console.log(dStringEntrada.split("").reverse().join(""));
+// }
 
 
 // Exercício 5
-// const elistaNumeros = [];
-
 // function maiorNumero() {
-//     const elistaNumeros = [1, 4, 6, 10, 3, 50];
-//     document.getElementById("estring").innerHTML = elistaNumeros;
+//     const elistaNumeros = document.getElementById("estring").value.split(" ");
 //     elistaNumeros.sort(function(a, b) {return b-a;});
-//     return elistaNumeros[0];
+//     document.getElementById("saida5").innerHTML =  elistaNumeros [0];
 // }
 
-// let resultado5 = maiorNumero();
+// const botao5 = document.getElementById("ok5");
 
-// document.getElementById("saida5").innerHTML = resultado5;
+// botao5.addEventListener("click", () => {
+//     const elistaNumeros = document.getElementById("estring").value.split(" ");
+//     elistaNumeros.sort(function(a, b) {return b-a;});
+//     document.getElementById("saida5").innerHTML =  elistaNumeros [0];
+// });
 
 
 // Exercício 6
-// const flistaNumeros = [];
-// let soma2 = 0;
 
-// function mediaNumero(i) {
-//     const flistaNumeros = [5, 10, 5, 5, 10, 10]
-//     document.getElementById("fstring").innerHTML = flistaNumeros;
-//     for(var i = 0; i < flistaNumeros.length; i++) {
-//         soma2 += flistaNumeros[i];
-//     }
+function mediaNumero(i) {
+    const flistaNumeros = [5, 10, 5, 5, 10, 10]
+    document.getElementById("fstring").innerHTML = flistaNumeros;
+    for(var i = 0; i < flistaNumeros.length; i++) {
+        soma2 += flistaNumeros[i];
+    }
 
-//     return soma2 / (flistaNumeros.length);
-// }
+    return soma2 / (flistaNumeros.length);
+}
 
-// let resultado6 = mediaNumero();
+let resultado6 = mediaNumero();
 
-// const fArray = document.getElementById("farray");
+const fArray = document.getElementById("farray");
 
-// document.getElementById("saida6").innerHTML = resultado6;
+document.getElementById("saida6").innerHTML = resultado6;
+
 
 
 // Exercício 7
