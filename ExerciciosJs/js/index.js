@@ -88,37 +88,42 @@
 
 
 // Exercício 6
+// function mediaNumero(i) {
+//     let soma2 = 0;
+//     const flistaNumeros = document.getElementById("fstring").value.split(" ");
+//     for(var i = 0; i < flistaNumeros.length; i++) {
+//         soma2 += parseFloat(flistaNumeros[i]);
+//     }
+//     document.getElementById("saida6").innerHTML = soma2 / (flistaNumeros.length);
+// }
 
-function mediaNumero(i) {
-    const flistaNumeros = [5, 10, 5, 5, 10, 10]
-    document.getElementById("fstring").innerHTML = flistaNumeros;
-    for(var i = 0; i < flistaNumeros.length; i++) {
-        soma2 += flistaNumeros[i];
-    }
+// const botao6 = document.getElementById("ok6");
 
-    return soma2 / (flistaNumeros.length);
-}
-
-let resultado6 = mediaNumero();
-
-const fArray = document.getElementById("farray");
-
-document.getElementById("saida6").innerHTML = resultado6;
-
-
+// botao6.addEventListener("click", (i) => {
+//     let soma2 = 0;
+//     const flistaNumeros = document.getElementById("fstring").value.split(" ");
+//     for(var i = 0; i < flistaNumeros.length; i++) {
+//         soma2 += parseFloat(flistaNumeros[i]);
+//     }
+//     document.getElementById("saida6").innerHTML = soma2 / (flistaNumeros.length);
+// });
 
 // Exercício 7
-// const pessoa = {};
-
 // function propriedades() {
-//     const pessoa = {nome:"Eduardo", sobrenome: "Coelho", idade:"19", cidade:"Antônio Carlos"};
-//     document.getElementById("gobjeto").innerHTML = pessoa.nome + " " + pessoa.sobrenome + " " + pessoa.idade + " " + pessoa.cidade;
-//     let caracteristicas = Object.values(pessoa)
-//     return caracteristicas.length
+//     let gobjeto = Object.assign({}, document.getElementById("gobjeto").value.split(", "));
+    
+//     let caracteristicas = Object.values(gobjeto)
+//     document.getElementById("saida7").innerHTML = caracteristicas.length
 // }
-// let resultado7 = propriedades();
 
-// document.getElementById("saida7").innerHTML = resultado7;
+// const botao7 = document.getElementById("ok7");
+
+// botao7.addEventListener("click", () => {
+//     let gobjeto = Object.assign({}, document.getElementById("gobjeto").value.split(", "));
+    
+//     let caracteristicas = Object.values(gobjeto)
+//     document.getElementById("saida7").innerHTML = caracteristicas.length
+// });
 
 
 // Exercício 8
