@@ -1,7 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
 main {
     height: 100%;
     display: flex;
     flex-direction: column;
-    margin-left: 5vh;
+    align-items: center;
+    text-align: justify;
+    font-size: 20px;
+    color: whitesmoke;
+    background-color: black;
 }
 
+.exercicios {
+    margin: 3vh;
+}
+
+.enunciado {
+    display: flex;
+    width: 60vh;
+    margin-bottom: 1vh; 
+    margin-top: 1vh;   
+}
+
+.input {
+    width: 20vh;
+    height: 2.5vh;
+    font-size: 15px;
+}
+
+.botao {
+    width: 8vh;
+    height: 4vh;
+    margin-top: 1vh;
+}
+
+.botao:hover {
+    width: 7.8vh;
+    height: 3.8vh;
+}
