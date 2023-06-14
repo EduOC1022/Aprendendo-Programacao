@@ -127,50 +127,78 @@
 
 
 // Exercício 8
-const botao8 = document.getElementById("ok8");
-botao8.addEventListener("click", () => {
-    function primo() {
-    let hNum = parseInt(document.getElementById("hnum").value);
-    for (let i = 2; i < hNum; i++) {
-        if (hNum % i == 0) {
-            return false;
-        } 
-        else {
-            return true;
-        }
-    }
-}
-document.getElementById("saida8").innerHTML = primo();
-});
+// const botao8 = document.getElementById("ok8");
+// botao8.addEventListener("click", () => {
+//     function primo() {
+//     let hNum = parseInt(document.getElementById("hnum").value);
+//     for (let i = 2; i <= hNum; i++) {
+//         if (hNum % i == 0) {
+//             return false;
+//         } 
+//         else {
+//             return true;
+//         }
+//     }
+// }
+// document.getElementById("saida8").innerHTML = primo();
+// });
 
 
 // Exercício 9
 // function corte() {
-//     let iString = ["Eduardo", "19", "Coelho", "Casa"];
-//     document.getElementById("iarray").innerHTML = iString;
+//     let iString = document.getElementById("iarray").value.split(", ");
 //     let result = [];
 //     for (let i of iString) {
 //         if (i.length > 5) {
 //             result.push(i);
 //         }
 //     }
-//     return result.join(", ");
+//     document.getElementById("saida9").innerHTML = result.join(", ");
+
 // }
 
-// document.getElementById("saida9").innerHTML = corte();
+// const botao9 = document.getElementById("ok9");
+
+// botao9.addEventListener("click", () => {
+//     let iString = document.getElementById("iarray").value.split(", ");
+//     let result = [];
+//     for (let i of iString) {
+//         if (i.length > 5) {
+//             result.push(i);
+//         }
+//     }
+//     document.getElementById("saida9").innerHTML = result.join(", ");
+// });
+
 
 
 // Exercício 10
-// function corte2() {
-//     let jString = [2, 4, 5, 7, 10, 1];
-//     document.getElementById("jarray").innerHTML = jString;
-//     let result = [];
-//     for (let j of jString) {
-//         if (j % 2 == 0) {
-//             result.push(j);
+const botao10 = document.getElementById("ok10");
+
+botao10.addEventListener("click", () => {
+    function corte2() {
+    let jString = parseInt(document.getElementById("jarray").value).split(", ");
+    let result = [];
+    for (let j of jString) {
+        if (j % 2 == 0) {
+            result.push(j).join(", ");
+        }
+    }
+}
+document.getElementById("saida10").innerHTML = corte2();
+});
+// const botao8 = document.getElementById("ok8");
+// botao8.addEventListener("click", () => {
+//     function primo() {
+//     let hNum = parseInt(document.getElementById("hnum").value);
+//     for (let i = 2; i <= hNum; i++) {
+//         if (hNum % i == 0) {
+//             return false;
+//         } 
+//         else {
+//             return true;
 //         }
 //     }
-//     return result.join(", ");
 // }
-
-// document.getElementById("saida10").innerHTML = corte2();
+// document.getElementById("saida8").innerHTML = primo();
+// });
