@@ -127,24 +127,22 @@
 
 
 // Exercício 8
-// let hNum = 0;
+const botao8 = document.getElementById("ok8");
+botao8.addEventListener("click", () => {
+    function primo() {
+    let hNum = parseInt(document.getElementById("hnum").value);
+    for (let i = 2; i < hNum; i++) {
+        if (hNum % i == 0) {
+            return false;
+        } 
+        else {
+            return true;
+        }
+    }
+}
+document.getElementById("saida8").innerHTML = primo();
+});
 
-// function primo() {
-//     let hNum = 11;
-//     document.getElementById("hnum").innerHTML = hNum;
-//     for (let i = 2; i < hNum; i++) {
-//         if (hNum % i == 0) {
-//                     return false;
-//                 } else {
-//                     return true;
-//                 }
-//     }
-// }
-
-// let resultado8 = primo();
-
-// document.getElementById("saida8").innerHTML = resultado8;
-// console.log(resultado8);
 
 // Exercício 9
 // function corte() {
