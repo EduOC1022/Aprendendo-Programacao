@@ -1,17 +1,32 @@
+import './App.css';
 import React from 'react';
-import TituloDescricao from './componentes_form/titulo_form'
+import TituloDescricao from './componentes/titulo_form';
+import Input from './componentes/input_form';
+import Botao from './componentes/botao_form';
 
-function titulo_form() {
+function formulario() {
   
   return (
-    <div className="App">
-      <TituloDescricao />
-    </div>
-    
+    <>
+      <div>
+        <TituloDescricao/>      
+      </div>
+      <div id="formulario">
+        <Input label="NOME:" id="nome" class="input" type="text"></Input>
+        <Input label="SOBRENOME:" id="sobrenome" class="input" type="text"></Input>
+        <Input label="NASCIMENTO:" id="nascimento" class="input" type="date"></Input>
+        <Input label="CIDADE:" id="cidade" class="input" type="text"></Input>
+        <Input label="E-MAIL" id="email" class="input" type="email"></Input>
+      </div>
+      <div>
+        <Botao id="enviar" class="botao">Enviar</Botao>
+      </div>
+    </>
   );
 }
 
-export default titulo_form;
+export default formulario;
+
 
 
 
