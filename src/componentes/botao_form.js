@@ -1,9 +1,10 @@
 import React from 'react';
 
 function Botao(props) {
-const {funcao, id, classe} = props;
+const {funcao, id, className, onClick} = props;
     return (<>
-            <button id={id} class={classe}>{funcao}</button>
+    
+            <button id={id} className={className} onClick={onClick}>{funcao}</button>
             </>
     )
   }

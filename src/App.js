@@ -1,31 +1,74 @@
-import './App.css';
-import React from 'react';
-import TituloDescricao from './componentes/titulo_form';
+import React, {useState} from 'react';
 import Input from './componentes/input_form';
 import Botao from './componentes/botao_form';
+import Registro from './componentes/registro_form';
+import './App.css';
 
-function formulario() {
-  
+function Formulario() {
+  const [registro, novoRegistro] = useState(false);
+  const [nome, novoNome] = useState('');
+  const [sobrenome, novoSobrenome] = useState('');
+  const [nascimento, novoNascimento] = useState('');
+  const [cidade, novaCidade] = useState('');
+  const [email, novoEmail] = useState('');
+
   return (
     <>
       <div>
-        <TituloDescricao/>      
+        <h1>Formulário Teste</h1>
       </div>
       <div id="formulario">
-        <Input label="NOME:" id="nome" class="input" type="text"></Input>
-        <Input label="SOBRENOME:" id="sobrenome" class="input" type="text"></Input>
-        <Input label="NASCIMENTO:" id="nascimento" class="input" type="date"></Input>
-        <Input label="CIDADE:" id="cidade" class="input" type="text"></Input>
-        <Input label="E-MAIL" id="email" class="input" type="email"></Input>
+        <Input 
+        label="NOME:" 
+        id="nome" 
+        class="input" 
+        type="text"
+        onChange={(e) => novoNome(e.target.value)}/>
+        <Input 
+        label="SOBRENOME:" 
+        id="sobrenome" 
+        class="input" 
+        type="text"
+        onChange={(e) => novoSobrenome(e.target.value)}/>
+        <Input 
+        label="NASCIMENTO:" 
+        id="nascimento" 
+        class="input" 
+        type="date"
+        onChange={(e) => novoNascimento(e.target.value)}/>
+        <Input 
+        label="CIDADE:" 
+        id="cidade" 
+        class="input" 
+        type="text"
+        onChange={(e) => novaCidade(e.target.value)}/>
+        <Input 
+        label="E-MAIL"
+        id="email" 
+        class="input" 
+        type="email"
+        onChange={(e) => novoEmail(e.target.value)}/>
       </div>
       <div>
-        <Botao id="enviar" class="botao">Enviar</Botao>
+        <Botao
+        id="limpar"
+        className="botao"
+        funcao="Limpar Registro"
+        onClick={() => novoRegistro(false)}/>
+        <Botao 
+        id="enviar" 
+        className="botao"
+        funcao="Enviar"
+        onClick={() => novoRegistro(true)}/>
+      </div>
+      <div>
+        {registro && <Registro idDiv="registro" nome={nome} sobrenome={sobrenome} nascimento={nascimento} cidade={cidade} email={email}/>}
       </div>
     </>
   );
 }
 
-export default formulario;
+export default Formulario;
 
 
 

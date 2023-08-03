@@ -1,10 +1,10 @@
 import React from 'react';
 
 function Input(props) {
-const {label, id, classe, type} = props;
+const {label, id, className, type, onChange} = props;
     return (<>
             <label>{label}</label>
-            <input id={id} class={classe} type={type}/>
+            <input id={id} class={className} type={type} onChange={onChange}/>
             <br></br>
             </>
     )
